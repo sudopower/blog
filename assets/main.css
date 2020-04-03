@@ -1,0 +1,159 @@
+*{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+}
+.nav-assist{
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+    margin: 1em 0 0 1em;
+
+}
+nav{
+    position: fixed;
+}
+a{
+    text-decoration: none !important;
+    color: white;
+}
+a:hover{
+    text-decoration: none !important;
+    color: white;
+}
+
+.blog-post-title{
+    font-weight: 900;
+}
+
+article{
+    background-color: black;
+}
+.article-content{
+    width: 700px;
+    max-width: 100%;
+    padding: 2em 2em 2em 2em;
+    margin: 0 auto;
+    display: block;
+}
+.article-title{    
+    font-family: 'Arimo', sans-serif;
+    font-weight: bold;
+    font-size: 4.2rem;
+    text-transform: uppercase;
+    /* WebKit (Safari/Chrome) Only */
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  
+  /* If we weren't using text-shadow, we'd set a fallback color
+     and use this to set color instead
+    -webkit-text-fill-color: white; */
+  
+  color: white;
+  
+  text-shadow:
+    3px 3px 0 #000,
+    /* Simulated effect for Firefox and Opera
+       and nice enhancement for WebKit */
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+   -1px  1px 0 #000,
+    1px  1px 0 #000;
+}
+
+.pub-detail{
+    background-color:white;
+    font-size:0.9em;
+    color:black;
+    font-weight:500;
+    border:solid 0.1em #000;
+    border-radius:100px;
+    padding:1px 5px 1px 5px;
+}
+
+.banner{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+    background-position: center;
+}
+
+.title-cover{
+    height: fit-content;
+    width: fit-content;
+    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+    background-color: #adb5bda6;
+    border-radius: 4rem;    
+    border: solid 0.8rem; 
+}
+
+.center-all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+
+.credit{
+    position: absolute;
+    top:45vh;
+    right: 0.5rem;
+    background:rgba(255, 255, 255, 0.8);
+    padding: 1px 1rem 2px;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: rotate(-90deg) translateX(100%);
+    transform: rotate(-90deg) translateX(100%);
+    border-radius: 1em;
+    border: solid 1.5px #000; 
+    color: #111;
+}
+
+@media (max-width:526px){
+    .article-content{
+        width: auto;
+        padding: 2rem 1rem 2rem 1rem;
+        margin: 0 auto;
+        display: block;
+    }
+    .article-title{    
+        font-family: 'Arimo', sans-serif;
+        font-weight: bold;
+        font-size: 2.2rem;
+        text-transform: uppercase;
+    }
+    .credit{
+        position: absolute;
+        right: 0.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 1px 1rem 2px;
+        -webkit-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+        -webkit-transform: rotate(-90deg) translateX(100%);
+        transform: rotate(-90deg) translateX(100%);
+        border-radius: 1em;
+        border: solid 1.5px #000;
+        font-size: 0.8rem;
+        color: #111;
+    }
+   
+}
+
+@media (max-width:526px){
+    nav{
+        right:1rem;
+    }
+    .nav-assist{
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+        margin: 1rem 0 0 1rem;    
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+    }
+}
