@@ -23,7 +23,9 @@ a:hover{
     text-decoration: none !important;
     color: white;
 }
-
+p, span, div {
+    font-size: 19px;
+}
 .blog-post-title{
     font-weight: 900;
 }
