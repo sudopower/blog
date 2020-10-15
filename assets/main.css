@@ -159,3 +159,10 @@ article{
         -ms-filter: "FlipH";
     }
 }
+
+
+
+/* for block of code */
+.hljs-ln-code {
+    padding-left: 10px;
+}
