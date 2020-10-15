@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../assets/main.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="../assets/highlight.pack.js"></script>
+  <script src="../assets/highlight.pack.js"></script>
   <link rel="stylesheet" href="../assets/styles/night-owl.css">
 </head>
 
@@ -20,23 +20,14 @@
       <div class="title-cover" style="border-color:#0083cb;">
         <h2 class="article-title" style="color:red;-webkit-text-stroke:1px red">Images, Screens, Apples, Pixels and
           Appxels 🖥️+🍎=🤯</h2>
-        <span class="pub-detail">December 23, 2013</span>
-        <span class="pub-detail">Admin</span>
+        <span class="pub-detail">December 23, 2015</span>
+        <span class="pub-detail">Kiran Nambiar</span>
       </div>
     </div>
   </div>
   <main role="main" class="container">
     <div class="blog-main m-3">
       <div style="height:100px;" aria-hidden="true" class="wp-block-spacer"></div>
-      <div class="row">
-        <div class="offset-md-3 col-md-6">
-          <p>
-
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="blog-main m-3">
       <div class="row">
         <div class="offset-md-2 col-md-8">
           <p class="row"><span style="background-color:#ff0000e8;">I’ll get to appexels in a minute !</span> Selfies,
@@ -69,7 +60,8 @@
             a set of 0s &amp; 1s and a zoomed in version. 1 being a bright pixel and 0 a dark one. What you see is a
             matrix with each row and column representing what to show on the screen. In a simple LED screen a 0 says
             turn off the LED and 1 says turn on the LED. You can make out just looking at the <span
-              style="background-color:#ff0000e8;">matrix itself that it’s an apple</span>. For color images it’s not that
+              style="background-color:#ff0000e8;">matrix itself that it’s an apple</span>. For color images it’s not
+            that
             apparent. </p>
 
           <div class="row mt-5">
@@ -103,22 +95,79 @@
             </div>
           </div>
 
-          <p class="mt-5"><span style="background-color:#ff0000e8;">So color images have something more than just 1s &amp;
+          <p class="mt-5"><span style="background-color:#ff0000e8;">So color images have something more than just 1s
+              &amp;
               0s</span>. For a RGB image format the values range from 0 – 255 instead of just 1 &amp; 0. These values
             give a more control on how strong or light (bright/dim) the value will be represented in an image. For
             making up the colors however the values are adjusted such that the <span
-              style="background-color:#ff0000e8;">mix of values produces the desired colors</span>. This is done by having
+              style="background-color:#ff0000e8;">mix of values produces the desired colors</span>. This is done by
+            having
             a set of 3 values between 0 – 255, each for a primary color. i.e red, green and blue. Highlighted lines of
             code below can be changed to get different RGB combinations. <a rel="noreferrer noopener"
               href="https://github.com/sudopower/playground/blob/master/blog/image/exp1.py" target="_blank">Link to
               complete file</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="blog-main m-3">
-      <div class="row">
-        <div class="offset-md-2 col-md-8 blog-post">
-          <pre><code class="python">
+
+          <div class="row mt-5">
+            <pre><code class="python">
+from matplotlib import image #for working with images
+from matplotlib import pyplot #for plotting stuff on graphical gui
+         
+matrix = image.imread('p.png') #read file
+#indexes for rgb values in a array of matrix values 
+red = 0
+green = 1
+blue = 2
+opacity = 3 #PNG format allows controlling transparency of image
+         
+for row in range(len(matrix)): #cycle through each row in the image
+for column in range(len(matrix[row])): #cycle through column of pixel in the image
+    matrix[row][column][red]=matrix[row][column][red] #keep red
+    matrix[row][column][green]=0 #remove green
+    matrix[row][column][blue]=0 #remove blue
+         
+    pyplot.axis('off')
+    pyplot.imshow(matrix)
+    pyplot.show()
+              </code></pre>
+            </pre>
+          </div>
+
+          <div class="row mt-5">
+            <div class=" col-md-12 col-sm-12 col-xs-12">
+              <div class="row">
+                <div class=" col-md-4 col-sm-4 col-xs-4">
+                  <img src="../assets/img/add.png" style="width: 100%;"><em>addition</em>
+                </div>
+                <div class=" col-md-4 col-sm-4 col-xs-4">
+                  <img src="../assets/img/subtract.png" style="width: 100%;"><em>subtraction</em>
+                </div>
+                <div class=" col-md-4 col-sm-4 col-xs-4">
+                  <img src="../assets/img/negate.png" style="width: 100%;"><em>inversion </em>🎸🤘
+                </div>
+              </div>
+              <div class="row">
+                <div class=" col-md-4 col-sm-4 col-xs-4">
+                  <img src="../assets/img/multiply.png" style="width: 100%;"><em>multiplication</em>
+                </div>
+                <div class=" col-md-4 col-sm-4 col-xs-4">
+                  <img src="../assets/img/divide.png" style="width: 100%;"><em>division</em>
+                </div>
+                <div class=" col-md-4 col-sm-4 col-xs-4">
+                  <img src="../assets/img/darkerbrighter.png" style="width: 100%;"><em>darker blacks, brighter
+                    whites</em>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-5">Some arithmetic calculations on these values like <span
+              style="background-color:#ff0000e8;">add, sub,
+              multiply, divide</span>. Highlighted line of code below can be changed to get different visual properties.
+            <a rel="noreferrer noopener" href="https://github.com/sudopower/playground/blob/master/blog/image/exp2.py"
+              target="_blank">Link to complete file</a></p>
+
+          <div class="row mt-5">
+            <pre><code class="python">
 from matplotlib import image #for working with images
 from matplotlib import pyplot #for plotting stuff on graphical gui
  
@@ -131,15 +180,138 @@ opacity = 3 #PNG format allows controlling transparency of image
  
 for row in range(len(matrix)): #cycle through each row in the image
     for column in range(len(matrix[row])): #cycle through column of pixel in the image
-        matrix[row][column][red]=matrix[row][column][red] #keep red
-        matrix[row][column][green]=0 #remove green
-        matrix[row][column][blue]=0 #remove blue
+        for value in range(len(matrix[row][column])): #cycle through rgb values for a pixel in the image
+             
+            # ADD A VALUE
+            if(value!=opacity): #need not change opacity
+                matrix[row][column][value]=matrix[row][column][value]+0.5 # 0 is least 1 is max
  
 pyplot.axis('off')
 pyplot.imshow(matrix)
 pyplot.show()
-          </code></pre>
-          </pre>
+              </code></pre>
+            </pre>
+          </div>
+
+          <div class="row mt-5">
+            <div class=" col-md-12 col-sm-12 col-xs-12">
+              <img src="../assets/img/color_wheel_circle-1.png" style="width: 100%;">
+              <em>By Smith131072 – Own work, CC BY-SA 4.0, <a
+                  href="https://commons.wikimedia.org/w/index.php?curid=79679934"
+                  rel="nofollow">https://commons.wikimedia.org/w/index.php?curid=79679934</a> (modified – added black
+                boxes)</em>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-md-8 col-sm-12 col-xs-12"><img src="../assets/img/screen_red_white_zommed.jpg"
+                style="width: 100%;"><em>close up picture of LCD screen zoomed in on box at the top</em></div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12">
+
+              <div class="row mt-xs-5 ">
+                <img src="../assets/img/screen_green_white_zommed.jpg" style="width: 100%;"><em>box to the bottom
+                  right</em>
+              </div>
+              <div class="row mt-md-5" style=""> <img src="../assets/img/screen_blue_white_zoomed.jpg"
+                  style="width: 100%;"><em>box to the bottom left</em></div>
+            </div>
+          </div>
+
+          <p class="mt-5">When the screen tries to display the image you can see these values inside the matrix on the
+            screen.
+            Checkout the zoomed in version of red circle, it’s half white and half red as you can see from the original
+            picture. The LCD screen has <span style="background-color:#00FF00;">3 sub pixels for each pixel and you can
+              see them turn on and off depending on the color being displayed</span>. In the red region you just have
+            the red sub pixels active and in the white region you can see all three sub pixels active. We need all three
+            primary colors to produce white color. The images of the screen are dark and blurry because I took these
+            macro shots from a mobile camera. </p>
+
+          <div class="row mt-5">
+            <div class=" col-md-12 col-sm-12 col-xs-12">
+              <div class="row">
+                <div class=" col-md-6 col-sm-6 col-xs-6">
+                  <img src="../assets/img/apples.png" style="width: 100%;"><em>generated apple matrix</em>
+                </div>
+                <div class=" col-md-6 col-sm-6 col-xs-6">
+                  <img src="../assets/img/apples_zoom1.png" style="width: 100%;"><em>zoomed area</em>
+                </div>
+              </div>
+              <div class="row">
+                <div class=" col-md-6 col-sm-6 col-xs-6">
+                  <img src="../assets/img/apples_zoom2.png" style="width: 100%;"><em>zoomed area</em>
+                </div>
+                <div class=" col-md-6 col-sm-6 col-xs-6">
+                  <img src="../assets/img/apples_zoom3.png" style="width: 100%;"><em>zoomed area</em>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-5">Here’s a <span style="background-color:#00FF00;">fun one</span>, I wrote a small script to convert a
+            regular image of an apple into one with all pixels made up of red apple emoji. <a rel="noreferrer noopener"
+              href="https://github.com/sudopower/playground/blob/master/blog/image/exp1.2.py" target="_blank">Link to
+              complete file</a>. <a rel="noreferrer noopener"
+              href="https://sudopower122901718.files.wordpress.com/2020/07/apples.png" target="_blank">Link to full
+              resolution image</a>. Well not really pixels, virtual pixels or VIXELS !? 🤔🥁🥁🥁🥁🥁<span
+              style="background-color:#00FF00;">APPXELS ! no there’s nothing such as appxels just made it up</span></p>
+
+          <div class="row mt-5">
+            <pre><code class="python">
+from PIL import Image, ImageDraw, ImageFont #for drawing image
+from matplotlib import image #can be done with PIL probably, just for code reuse
+ 
+matrix = image.imread('apple.png') #read file
+ 
+#indexes for rgb values in a array of matrix values 
+red = 0
+green = 1
+blue = 2
+opacity = 3 #PNG format allows controlling transparency of image
+ 
+scaling = 20 #scale factor for text size, spacing, line heighting, image dimensions
+character = "\U0001F34E" #red apple emoticon unicode
+canvasColor = (255, 255, 255)
+dimension = len(matrix) # height = width, sq image
+ 
+font_path = "seguiemj.ttf" #font to work with emoticons
+font_size = scaling #set font size
+ 
+img = Image.new('RGB', (dimension*scaling, dimension*scaling), color = canvasColor) #create canvas for image
+d = ImageDraw.Draw(img) # draw into this canvas
+font = ImageFont.truetype(font_path, font_size) #set font properties
+ 
+for row in range(dimension): #cycle through each row in the image
+    spaceCounter=0 # to space out the pixel apples
+    for column in range(len(matrix[row])): #cycle through column of pixel in the image
+        # color as per value
+        redVal=matrix[row][column][red] #redness
+        greenVal=matrix[row][column][green] #greeness
+        blueVal=matrix[row][column][blue] #blueness
+        hText = column+spaceCounter*scaling #scale and space out every pixel apple
+        vText = row*scaling #space out every row
+        d.text((hText,vText), character, fill=(int(redVal*255), int(greenVal*255), int(blueVal*255)),font=font) #place the appexel (apple) with color as per original image in corresponding coordinates
+        spaceCounter+=1 #push every pixel apple in row further away
+  
+img.save('apples.png')
+              </code></pre>
+            </pre>
+          </div>
+
+          <p class="mt-3">Will add more … thanks for checking out !</p>
+
+          <div class="row mt-2">
+            <div class=" col-md-12 col-sm-12 col-xs-12">
+              <div class="row">
+                <div class=" col-md-6 col-sm-6 col-xs-6">
+                  <img src="../assets/img/ezgif.com-optimize.gif" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-3">If you liked it or want to discuss about it drop an email <a href="mailto: nkirandroid@gmail.com?subject=Hi Kiran !" >here !</a></p>
+
         </div>
       </div>
     </div>
@@ -153,15 +325,17 @@ pyplot.show()
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
     integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/gh/TRSasasusu/highlightjs-highlight-lines.js@1.1.6/highlightjs-highlight-lines.min.js"></script>
-    <script>    
-      hljs.initHighlightingOnLoad();
-      hljs.initHighlightingOnLoad();
-  hljs.initHighlightLinesOnLoad([
-    [{start: 11, end: 13, color: '#555'}], // Highlight some lines in the first code block.
-    // [{start: 2, end: 3, color: 'rgba(255, 255, 255, 0.2)'},], // Highlight some lines in the second code block.
-]);
-    </script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/TRSasasusu/highlightjs-highlight-lines.js@1.1.6/highlightjs-highlight-lines.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    hljs.initHighlightingOnLoad();
+    hljs.initHighlightLinesOnLoad([
+      [{ start: 11, end: 13, color: '#555' }],
+      [{ start: 17, end: 17, color: '#555' }] // Highlight some lines in the first code block.
+      // [{start: 2, end: 3, color: 'rgba(255, 255, 255, 0.2)'},], // Highlight some lines in the second code block.
+    ]);
+  </script>
 </body>
 
 </html>
