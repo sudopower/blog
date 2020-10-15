@@ -5,12 +5,15 @@
     outline: 0;
     padding: 0;
 }
+body{
+    background-color: #011627 !important;
+    color: white !important;
+}
 .nav-assist{
     border-radius: 50%;
     height: 5em;
     width: 5em;
     margin: 1em 0 0 1em;
-
 }
 nav{
     position: fixed;
@@ -29,7 +32,9 @@ p, span, div {
 .blog-post-title{
     font-weight: 900;
 }
-
+nav{
+    z-index: 99999999999;
+}
 article{
     background-color: black;
 }
